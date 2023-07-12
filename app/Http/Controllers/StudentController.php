@@ -28,12 +28,19 @@ class StudentController extends Controller
             ->orWhere('email','=','hassie96@example.net')
             // tương đương với toán tử or
             ->get();
-        dd($studentCondition);
+
         $countStudent = DB::table('students')->count();
-        dd($countStudent);
+
         //lấy toàn bộ dữ liệu của bảng students tương đương với
         // select * from students
 //        dd($students);
         return view('student.index',compact('title','name','students'));
+        //tạo 1 route add-student và view add gồm form (input name,email)
+    }
+    public function add(Request $request) {
+        if ($request->isMethod('POST')) { //tồn tại phương thức post
+            dd($request->name);
+        }
+        return view('student.add');
     }
 }
