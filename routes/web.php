@@ -18,5 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/student',[App\Http\Controllers\StudentController::class,'index']);
-Route::match(['GET','POST'],'/add-student',[App\Http\Controllers\StudentController::class,'add']);
+Route::match(['GET','POST'],'/student/add',[App\Http\Controllers\StudentController::class,'add'])->name('route_student_add');
+Route::match(['GET','POST'],'/student/edit/{id}',[App\Http\Controllers\StudentController::class,'edit'])->name('route_student_edit');
+
 

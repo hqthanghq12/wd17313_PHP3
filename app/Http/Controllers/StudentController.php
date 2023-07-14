@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentRequest;
+use App\Models\Students;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use function League\Flysystem\get;
 
 class StudentController extends Controller
@@ -37,10 +40,31 @@ class StudentController extends Controller
         return view('student.index',compact('title','name','students'));
         //tạo 1 route add-student và view add gồm form (input name,email)
     }
-    public function add(Request $request) {
+    public function add(StudentRequest $request) {
         if ($request->isMethod('POST')) { //tồn tại phương thức post
-            dd($request->name);
+
+          $student = Students::create($request->except('_token'));
+          if ($student->id) {
+              Session::flash('success','thêm mới thành công sinh viên');
+              return redirect()->route('route_student_add');
+          }
         }
         return view('student.add');
+    }
+    public function  edit(StudentRequest $request,$id) {
+        //cách 1
+//        $student = DB::table('students')
+//            ->where('id',$id)->first();
+        //cách 2
+        $student = Students::find($id);
+        if ($request->isMethod('POST')) {
+           $result = Students::where('id',$id)
+               ->update($request->except('_token'));
+           if ($result) {
+               Session::flash('success','sửa  thành công sinh viên');
+               return redirect()->route('route_student_edit',['id'=>$id]);
+           }
+        }
+        return view('student.edit',compact('student'));
     }
 }
