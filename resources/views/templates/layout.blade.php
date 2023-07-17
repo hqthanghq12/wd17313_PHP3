@@ -40,10 +40,11 @@
 <footer class="bg-light text-center mt-4 py-2">
     <p></p>
 </footer>
-
-
+<script src="{{ asset('libs/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('libs/input-mask/jquery.inputmask.js') }}"></script>
 <script src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script>
 <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+@yield('script')
 
 </body>
 </html>

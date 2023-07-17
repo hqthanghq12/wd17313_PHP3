@@ -16,7 +16,7 @@ class StudentController extends Controller
         $title = "hello laravel";
         $name = "thanghq12";
         $students = DB::table('students')
-            ->select('id', 'name') // lấy theo số trường mà mình mong muốn
+            ->select('id', 'name','image') // lấy theo số trường mà mình mong muốn
 
             ->get();
         // lấy theo điều kiện và trả về 1 dòng dữ liệu
@@ -41,9 +41,14 @@ class StudentController extends Controller
         //tạo 1 route add-student và view add gồm form (input name,email)
     }
     public function add(StudentRequest $request) {
-        if ($request->isMethod('POST')) { //tồn tại phương thức post
+        if ($request->isMethod('POST')) { //tồn tại phương thức post/
+            //nếu như tồn tại file thì sẽ up file lên
+           $params =  $request->except('_token');
+           if ($request->hasFile('image') && $request->file('image')->isValid()) {
+               $params['image'] = uploadFile('hinh',$request->file('image'));
+           }
 
-          $student = Students::create($request->except('_token'));
+          $student = Students::create($params);
           if ($student->id) {
               Session::flash('success','thêm mới thành công sinh viên');
               return redirect()->route('route_student_add');

@@ -34,7 +34,8 @@ class StudentRequest extends FormRequest
                         //xây dựng rules validate trong này
                         $rules = [
                             'name'=>'required',
-                            'email'=>'required|email|unique:students'
+                            'email'=>'required|email|unique:students',
+                            'image'=>'required|image|mimes:jpeg,jpg,png|max:5120' //5120 kb <=> 5mb
                         ];
                     break;
                 endswitch;
@@ -48,7 +49,8 @@ class StudentRequest extends FormRequest
             'name.required'=>'tên khum được để trống',
             'email.required'=>'bắt buộc phải nhập email',
             'email.email'=>'Phải là kiểm email',
-            'email.unique'=>'Email đã tồn tại'
+            'email.unique'=>'Email đã tồn tại',
+            'image.required'=>'Bắt buộc phải nhập ảnh'
         ];
     }
 }
