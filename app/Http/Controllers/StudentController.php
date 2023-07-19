@@ -7,6 +7,7 @@ use App\Models\Students;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use function League\Flysystem\get;
 
 class StudentController extends Controller
@@ -15,10 +16,13 @@ class StudentController extends Controller
     public function index() {
         $title = "hello laravel";
         $name = "thanghq12";
-        $students = DB::table('students')
-            ->select('id', 'name','image') // lấy theo số trường mà mình mong muốn
-
-            ->get();
+        //c1
+//        $students = DB::table('students')
+//            ->select('id', 'name','image') // lấy theo số trường mà mình mong muốn
+//            ->whereNull('deleted_at')
+//            ->get();
+        //c2
+        $students = Students::all(); // tự động lấy ra những deleted_at là null
         // lấy theo điều kiện và trả về 1 dòng dữ liệu
         $student = DB::table('students')
             ->where('id','=',1)
@@ -63,13 +67,29 @@ class StudentController extends Controller
         //cách 2
         $student = Students::find($id);
         if ($request->isMethod('POST')) {
+            $params = $request->except('_token');
+            //
+            if ($request->hasFile('image') && $request->file('image')->isValid()) {
+                //có file mới upload lên sẽ link vào để xóa ảnh cũ đi
+              $resultDL = Storage::delete('/public/'.$student->image);
+              if ($resultDL) {
+                  $params['image'] = uploadFile('hinh',$request->file('image'));
+              }
+            } else {
+                $params['image'] = $student->image;
+            }
            $result = Students::where('id',$id)
-               ->update($request->except('_token'));
+               ->update($params);
            if ($result) {
                Session::flash('success','sửa  thành công sinh viên');
                return redirect()->route('route_student_edit',['id'=>$id]);
            }
         }
         return view('student.edit',compact('student'));
+    }
+    public function delete($id) {
+        Students::where('id',$id)->delete();
+        Session::flash('success','xóa thành công sinh viên có id là'.$id);
+        return redirect()->route('route_student_index');
     }
 }
