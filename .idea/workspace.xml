@@ -11,14 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63cc3a10-331d-4f92-a9e2-a27fb92496db" name="Default Changelist" comment="update">
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Students.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Students.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_28_011204_create_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_28_011204_create_students_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/student/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/student/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,8 +196,17 @@
       <workItem from="1688949432896" duration="4860000" />
       <workItem from="1688982280062" duration="588000" />
       <workItem from="1689122142330" duration="3320000" />
-      <workItem from="1689726820106" duration="3719000" />
+      <workItem from="1689726820106" duration="4722000" />
+      <workItem from="1690158929013" duration="4726000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <created>1689731407229</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689731407229</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,10 +233,14 @@
       <screen x="0" y="25" width="1280" height="654" />
     </state>
     <state x="378" y="109" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1280.654@0.25.1280.654" timestamp="1688088518649" />
-    <state x="462" y="279" key="NewPhpFileDialog" timestamp="1689554152334">
+    <state x="462" y="279" key="NewPhpFileDialog" timestamp="1690160104798">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="462" y="279" key="NewPhpFileDialog/0.0.1280.720@0.0.1280.720" timestamp="1689554152334" />
+    <state x="462" y="279" key="NewPhpFileDialog/0.0.1280.720@0.0.1280.720" timestamp="1690160104798" />
     <state x="462" y="277" key="NewPhpFileDialog/0.25.1280.651@0.25.1280.651" timestamp="1689126069109" />
+    <state x="240" y="84" key="Vcs.Push.Dialog.v2" timestamp="1689731409485">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="240" y="84" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1689731409485" />
   </component>
 </project>

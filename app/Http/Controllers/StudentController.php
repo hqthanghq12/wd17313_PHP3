@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StudentRequest;
 use App\Models\Students;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -14,15 +15,16 @@ class StudentController extends Controller
 {
     //
     public function index() {
+
         $title = "hello laravel";
         $name = "thanghq12";
         //c1
-//        $students = DB::table('students')
-//            ->select('id', 'name','image') // lấy theo số trường mà mình mong muốn
-//            ->whereNull('deleted_at')
-//            ->get();
+        $students = DB::table('students')
+            ->select('id', 'name','image') // lấy theo số trường mà mình mong muốn
+            ->whereNull('deleted_at')
+            ->paginate(5);
         //c2
-        $students = Students::all(); // tự động lấy ra những deleted_at là null
+//        $students = Students::all(); // tự động lấy ra những deleted_at là null
         // lấy theo điều kiện và trả về 1 dòng dữ liệu
         $student = DB::table('students')
             ->where('id','=',1)
