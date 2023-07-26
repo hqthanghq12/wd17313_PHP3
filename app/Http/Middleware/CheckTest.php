@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckTest
 {
@@ -16,7 +17,9 @@ class CheckTest
      */
     public function handle(Request $request, Closure $next)
     {
-        dd(123);
+        if (Auth::user()->role == 1) {
+            dd("Bạn không có quyền");
+        }
         return $next($request);
     }
 }

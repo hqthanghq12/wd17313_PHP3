@@ -17,7 +17,7 @@ class Kernel extends HttpKernel
     //nếu gài middleware ở đây thực hiện check toàn bộ route
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
-        CheckTest::class,
+//        CheckTest::class,
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
@@ -56,6 +56,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
+        'check.test' => \App\Http\Middleware\CheckTest::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
