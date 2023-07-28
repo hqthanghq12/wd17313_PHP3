@@ -29,6 +29,8 @@ class StudentController extends Controller
             ];
         }
         $dataStudent = Students::where('name','LIKE','%'.$request->name.'%')->get();
+        // truyền vào param là start và end để phân trang
+
         // viết API truyền vào param name để tìm các sinh viên có tên gần đúng như param truyền lên
 //        $dataStudent = Students::all();
 //        $dataJson = [
